@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <meta
+    name="description"
+    content="دعوة تخرج هندسية تفاعلية مستوحاة من المخططات المعمارية."
+  >
+
+  <meta name="theme-color" content="#071a29">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="مخطط المستقبل — دعوة تخرج">
+  <meta
+    property="og:description"
+    content="اكتمل المشروع. حان وقت الاحتفال."
+  >
+
+  <title>مخطط المستقبل — دعوة تخرج</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="blueprint-grid" aria-hidden="true"></div>
+  <div class="noise-layer" aria-hidden="true"></div>
+
+  <main class="site-shell">
+
+    <!-- =========================================
+         TOP BAR
+    ========================================== -->
+    <header class="topbar">
+
+      <a
+        href="#blueprint"
+        class="brand"
+        aria-label="الانتقال إلى مخطط المشروع"
+      >
+        <span class="brand-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </span>
+
+        <span class="brand-copy">
+          <small>ENGINEERING PROJECT</small>
+          <strong>مخطط المستقبل</strong>
+        </span>
+      </a>
+
+
+      <button
+        type="button"
+        class="theme-toggle"
+        id="themeToggle"
+        aria-label="تبديل الوضع"
+      >
+        <span class="theme-toggle__dot"></span>
+        <span id="themeLabel">LIGHT</span>
+      </button>
+
+    </header>
+
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
+    <section
+      class="hero"
+      id="blueprint"
+      aria-labelledby="heroTitle"
+    >
+
+      <div class="hero-copy">
+
+        <span class="eyebrow">
+          مشروع رقم
+          <span data-field="projectId">ENG-2027-006</span>
+        </span>
+
+
+        <h1 id="heroTitle">
+          <span>المشروع</span>
+          <span class="accent">المستقبل</span>
+        </h1>
+
+
+        <p>
+          سنوات من العمل تحولت إلى مخطط
+          وكل مرحلة أوصلت المشروع إلى لحظة الاكتمال
+        </p>
+
+      </div>
+
+
+      <!-- BLUEPRINT BOARD -->
+      <div class="blueprint-board">
+
+        <div class="board-top">
+
+          <div>
+            <span>ENGINEER</span>
+
+            <strong data-field="graduateName">
+              علي أحمد
+            </strong>
+          </div>
+
+
+          <div>
+            <span>STATUS</span>
+
+            <strong id="projectStatus">
+              قيد التنفيذ
+            </strong>
+          </div>
+
+        </div>
+
+
+        <div class="drawing-area">
+
+          <svg
+            class="blueprint-svg"
+            id="blueprintSvg"
+            viewBox="0 0 800 560"
+            aria-hidden="true"
+          >
+
+            <!-- MAIN FRAME -->
+            <rect
+              class="bp-line main-frame"
+              x="85"
+              y="85"
+              width="630"
+              height="390"
+              rx="4"
+              pathLength="1"
+            ></rect>
+
+
+            <!-- STRUCTURE -->
+            <path
+              class="bp-line foundation-path"
+              d="M130 430H670"
+              pathLength="1"
+            ></path>
+
+
+            <path
+              class="bp-line structure-path"
+              d="M190 430V230H610V430"
+              pathLength="1"
+            ></path>
+
+
+            <path
+              class="bp-line development-path"
+              d="M190 320H610M300 230V430M500 230V430"
+              pathLength="1"
+            ></path>
+
+
+            <path
+              class="bp-line roof-path"
+              d="M160 230L400 130L640 230"
+              pathLength="1"
+            ></path>
+
+
+            <!-- TECHNICAL DIMENSIONS -->
+            <path
+              class="bp-dim"
+              d="M130 490H670"
+            ></path>
+
+            <path
+              class="bp-dim"
+              d="M130 482V498M670 482V498"
+            ></path>
+
+
+            <path
+              class="bp-dim"
+              d="M55 110V450"
+            ></path>
+
+            <path
+              class="bp-dim"
+              d="M47 110H63M47 450H63"
+            ></path>
+
+
+            <!-- GUIDE -->
+            <circle
+              class="bp-node node-one"
+              cx="190"
+              cy="430"
+              r="10"
+            ></circle>
+
+            <circle
+              class="bp-node node-two"
+              cx="400"
+              cy="130"
+              r="10"
+            ></circle>
+
+            <circle
+              class="bp-node node-three"
+              cx="610"
+              cy="430"
+              r="10"
+            ></circle>
+
+
+            <!-- GRADUATE NAME DRAWING -->
+            <text
+              id="blueprintName"
+              class="blueprint-name"
+              x="400"
+              y="300"
+              text-anchor="middle"
+              dominant-baseline="middle"
+            >
+              علي أحمد
+            </text>
+
+          </svg>
+
+
+          <!-- NODES -->
+          <button
+            type="button"
+            class="info-node info-node--1"
+            data-node="foundation"
+          >
+            <span></span>
+            الأساس
+          </button>
+
+
+          <button
+            type="button"
+            class="info-node info-node--2"
+            data-node="structure"
+          >
+            <span></span>
+            الهيكل
+          </button>
+
+
+          <button
+            type="button"
+            class="info-node info-node--3"
+            data-node="development"
+          >
+            <span></span>
+            التطوير
+          </button>
+
+        </div>
+
+
+        <div
+          class="node-panel"
+          id="nodePanel"
+        >
+          <span id="nodePanelLabel">
+            PROJECT NODE
+          </span>
+
+          <strong id="nodePanelTitle">
+            اختر إحدى نقاط المخطط
+          </strong>
+
+          <p id="nodePanelText">
+            اضغط على إحدى مراحل المشروع لعرض التفاصيل
+          </p>
+        </div>
+
+
+        <div class="project-console">
+
+          <div class="console-status">
+
+            <span
+              class="console-dot"
+              id="consoleDot"
+            ></span>
+
+            <span id="consoleMessage">
+              المخطط جاهز للتنفيذ
+            </span>
+
+          </div>
+
+
+          <button
+            class="build-button"
+            id="buildButton"
+            type="button"
+          >
+            <span>
+              بدء تنفيذ المشروع
+            </span>
+
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M5 12H19"></path>
+              <path d="M14 7L19 12L14 17"></path>
+            </svg>
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         PROJECT PROGRESS
+    ========================================== -->
+    <section class="progress-section">
+
+      <div class="section-number">
+        01
+      </div>
+
+
+      <div class="section-heading">
+
+        <span class="eyebrow">
+          PROJECT PROGRESS
+        </span>
+
+
+        <h2>
+          <span>نسبة إنجاز</span>
+          <span class="accent">المشروع</span>
+        </h2>
+
+      </div>
+
+
+      <div class="progress-display">
+
+        <strong id="projectPercentage">
+          0%
+        </strong>
+
+
+        <div class="progress-bar">
+
+          <span
+            id="projectProgressBar"
+          ></span>
+
+        </div>
+
+
+        <div class="progress-meta">
+
+          <span>
+            START
+          </span>
+
+          <span>
+            COMPLETION
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         PROJECT PHASES
+    ========================================== -->
+    <section class="phases-section">
+
+      <div class="phases-heading">
+
+        <span class="eyebrow">
+          PROJECT PHASES
+        </span>
+
+
+        <h2>
+          <span>أربع مراحل</span>
+          <span class="accent">إلى الاكتمال</span>
+        </h2>
+
+      </div>
+
+
+      <div
+        class="phases-list"
+        id="phasesList"
+      >
+        <!-- generated by JS -->
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         NAME REVEAL
+    ========================================== -->
+    <section
+      class="name-section"
+      id="nameSection"
+    >
+
+      <div class="name-section__meta">
+
+        <span>02</span>
+
+        <span>
+          PROJECT COMPLETE
+        </span>
+
+      </div>
+
+
+      <div class="name-section__content">
+
+        <span class="eyebrow">
+          FINAL ENGINEERING OUTPUT
+        </span>
+
+
+        <h2>
+          <span>اكتمل</span>
+          <span class="accent">المشروع</span>
+        </h2>
+
+
+        <div class="graduate-name-large">
+
+          <span>
+            ENGINEER
+          </span>
+
+          <strong data-field="graduateName">
+            علي أحمد
+          </strong>
+
+        </div>
+
+
+        <p>
+          اكتملت جميع مراحل المشروع
+          وأصبح المخطط جاهزاً لبدء المرحلة القادمة
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         ACADEMIC SPECIFICATION
+    ========================================== -->
+    <section class="spec-section">
+
+      <div class="section-number">
+        03
+      </div>
+
+
+      <div class="section-heading">
+
+        <span class="eyebrow">
+          PROJECT SPECIFICATION
+        </span>
+
+
+        <h2>
+          <span>المواصفات</span>
+          <span class="accent">الأكاديمية</span>
+        </h2>
+
+      </div>
+
+
+      <div class="spec-grid">
+
+        <article class="spec-card">
+          <span>الخريج</span>
+
+          <strong data-field="graduateName">
+            علي أحمد
+          </strong>
+        </article>
+
+
+        <article class="spec-card">
+          <span>الدرجة العلمية</span>
+
+          <strong data-field="degree">
+            بكالوريوس هندسة مدنية
+          </strong>
+        </article>
+
+
+        <article class="spec-card">
+          <span>الكلية</span>
+
+          <strong data-field="faculty">
+            كلية الهندسة
+          </strong>
+        </article>
+
+
+        <article class="spec-card">
+          <span>القسم</span>
+
+          <strong data-field="department">
+            الهندسة المدنية
+          </strong>
+        </article>
+
+
+        <article class="spec-card">
+          <span>الجامعة</span>
+
+          <strong data-field="university">
+            جامعة الموصل
+          </strong>
+        </article>
+
+
+        <article class="spec-card">
+          <span>الدفعة</span>
+
+          <strong data-field="classYear">
+            دفعة ٢٠٢٧
+          </strong>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CEREMONY ROUTE
+    ========================================== -->
+    <section class="route-section">
+
+      <div class="route-heading">
+
+        <span class="eyebrow">
+          FINAL PROJECT SITE
+        </span>
+
+
+        <h2>
+          <span>المسار الأخير</span>
+          <span class="accent">إلى الاحتفال</span>
+        </h2>
+
+      </div>
+
+
+      <div class="route-board">
+
+        <svg
+          class="route-svg"
+          viewBox="0 0 900 320"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+
+          <path
+            id="routePath"
+            class="route-path"
+            pathLength="1"
+            d="
+              M60 250
+              C180 250 190 100 320 100
+              C450 100 460 240 590 240
+              C720 240 730 90 840 90
+            "
+          ></path>
+
+
+          <circle
+            class="route-start"
+            cx="60"
+            cy="250"
+            r="8"
+          ></circle>
+
+
+          <circle
+            class="route-end"
+            cx="840"
+            cy="90"
+            r="12"
+          ></circle>
+
+        </svg>
+
+
+        <div class="route-start-label">
+          <span>
+            START
+          </span>
+
+          <strong>
+            UNIVERSITY
+          </strong>
+        </div>
+
+
+        <div class="route-end-label">
+          <span>
+            DESTINATION
+          </span>
+
+          <strong data-field="venue">
+            قاعة الاحتفال الكبرى
+          </strong>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CEREMONY
+    ========================================== -->
+    <section class="ceremony-section">
+
+      <div class="ceremony-heading">
+
+        <span class="eyebrow">
+          COMPLETION CEREMONY
+        </span>
+
+
+        <h2>
+          <span>موعد تسليم</span>
+          <span class="accent">المشروع</span>
+        </h2>
+
+
+        <p data-field="tagline">
+          اكتمل المشروع وحان وقت الاحتفال بالإنجاز
+        </p>
+
+      </div>
+
+
+      <div class="ceremony-layout">
+
+        <article class="date-card">
+
+          <span
+            class="date-month"
+            id="ceremonyMonth"
+          >
+            JUL
+          </span>
+
+
+          <strong
+            class="date-day"
+            id="ceremonyDay"
+          >
+            15
+          </strong>
+
+
+          <span
+            class="date-year"
+            id="ceremonyYear"
+          >
+            2027
+          </span>
+
+        </article>
+
+
+        <div class="ceremony-info">
+
+          <div class="ceremony-row">
+
+            <span>
+              التاريخ
+            </span>
+
+            <strong id="formattedDate">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="ceremony-row">
+
+            <span>
+              الوقت
+            </span>
+
+            <strong id="formattedTime">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="ceremony-row">
+
+            <span>
+              الموقع
+            </span>
+
+            <strong data-field="venue">
+              قاعة الاحتفال الكبرى
+            </strong>
+
+          </div>
+
+
+          <div class="ceremony-row">
+
+            <span>
+              العنوان
+            </span>
+
+            <strong id="fullAddress">
+              الموصل، نينوى، العراق
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         ACTIONS
+    ========================================== -->
+    <section class="actions-section">
+
+      <div class="section-number">
+        04
+      </div>
+
+
+      <div class="section-heading">
+
+        <span class="eyebrow">
+          PROJECT ACTIONS
+        </span>
+
+
+        <h2>
+          <span>الخطوة</span>
+          <span class="accent">التالية</span>
+        </h2>
+
+      </div>
+
+
+      <div class="actions-grid">
+
+        <a
+          href="#"
+          class="action-card"
+          id="mapsButton"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <span class="action-index">
+            01
+          </span>
+
+
+          <div>
+            <small>
+              PROJECT SITE
+            </small>
+
+            <strong>
+              الانتقال إلى موقع الاحتفال
+            </strong>
+          </div>
+
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M5 19L19 5"></path>
+            <path d="M9 5H19V15"></path>
+          </svg>
+
+        </a>
+
+
+        <button
+          type="button"
+          class="action-card"
+          id="calendarButton"
+        >
+
+          <span class="action-index">
+            02
+          </span>
+
+
+          <div>
+            <small>
+              SCHEDULE
+            </small>
+
+            <strong>
+              إضافة الموعد للتقويم
+            </strong>
+          </div>
+
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <rect
+              x="4"
+              y="5"
+              width="16"
+              height="15"
+              rx="2"
+            ></rect>
+
+            <path d="M8 3V7"></path>
+            <path d="M16 3V7"></path>
+            <path d="M4 10H20"></path>
+          </svg>
+
+        </button>
+
+
+        <button
+          type="button"
+          class="action-card"
+          id="shareButton"
+        >
+
+          <span class="action-index">
+            03
+          </span>
+
+
+          <div>
+            <small>
+              BLUEPRINT
+            </small>
+
+            <strong>
+              مشاركة الدعوة
+            </strong>
+          </div>
+
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <circle cx="18" cy="5" r="2.5"></circle>
+            <circle cx="6" cy="12" r="2.5"></circle>
+            <circle cx="18" cy="19" r="2.5"></circle>
+
+            <path d="M8.2 10.8L15.8 6.2"></path>
+            <path d="M8.2 13.2L15.8 17.8"></path>
+          </svg>
+
+        </button>
+
+      </div>
+
+
+      <div
+        class="share-feedback"
+        id="shareFeedback"
+        aria-live="polite"
+      ></div>
+
+    </section>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+    <footer class="closing">
+
+      <span class="eyebrow">
+        PROJECT STATUS / 100%
+      </span>
+
+
+      <h2>
+        <span>اكتمل المشروع</span>
+        <span class="accent">ويبدأ المستقبل</span>
+      </h2>
+
+
+      <p>
+        <strong data-field="graduateName">
+          علي أحمد
+        </strong>
+
+        <span>—</span>
+
+        <span data-field="classYear">
+          دفعة ٢٠٢٧
+        </span>
+      </p>
+
+
+      <small>
+        FUTURE BLUEPRINT / ENGINEERING GRADUATION SYSTEM
+      </small>
+
+    </footer>
+
+  </main>
+
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    defer
+  ></script>
+
+  <script src="script.js" defer></script>
+
+</body>
+</html>
