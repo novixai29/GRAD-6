@@ -1,0 +1,1935 @@
+/* =========================================================
+   GRAD-006 — FUTURE BLUEPRINT
+   MOBILE FIRST
+   SAFE ARABIC TYPOGRAPHY
+========================================================= */
+
+:root {
+
+  --bg: #071a29;
+  --bg-2: #0b2235;
+
+  --panel: rgba(10, 31, 49, 0.86);
+  --panel-solid: #0d2639;
+
+  --text: #edf8ff;
+  --text-soft: #a8bdca;
+  --text-muted: #688496;
+
+  --cyan: #62e5ff;
+  --cyan-soft: rgba(98, 229, 255, 0.10);
+
+  --orange: #ff9e55;
+
+  --success: #76f1b8;
+
+  --line: rgba(168, 219, 239, 0.12);
+  --line-strong: rgba(168, 219, 239, 0.25);
+
+  --font-ar:
+    "IBM Plex Sans Arabic",
+    sans-serif;
+
+  --font-kufi:
+    "Noto Kufi Arabic",
+    sans-serif;
+
+  --font-mono:
+    "IBM Plex Mono",
+    monospace;
+
+  --safe-top:
+    max(18px, env(safe-area-inset-top));
+
+  --safe-bottom:
+    max(18px, env(safe-area-inset-bottom));
+
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+body.light-mode {
+
+  --bg: #eaf4f8;
+  --bg-2: #daeaf0;
+
+  --panel: rgba(255, 255, 255, 0.78);
+  --panel-solid: #ffffff;
+
+  --text: #0a2333;
+  --text-soft: #516c7b;
+  --text-muted: #78909d;
+
+  --cyan: #0088aa;
+  --cyan-soft: rgba(0, 136, 170, 0.08);
+
+  --line: rgba(10, 35, 51, 0.10);
+  --line-strong: rgba(10, 35, 51, 0.20);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-width: 0;
+
+  margin: 0;
+
+  overflow-x: hidden;
+
+  background: var(--bg);
+
+  color: var(--text);
+
+  font-family: var(--font-ar);
+
+  -webkit-font-smoothing: antialiased;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+main,
+section,
+header,
+footer,
+article,
+div {
+  min-width: 0;
+}
+
+h1,
+h2,
+h3,
+p,
+strong,
+span {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: 0;
+}
+
+button,
+a {
+  font: inherit;
+
+  color: inherit;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+svg {
+  display: block;
+}
+
+::selection {
+  background: var(--cyan);
+
+  color: #06202e;
+}
+
+
+/* =========================================================
+   BACKGROUND GRID
+========================================================= */
+
+.blueprint-grid {
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.35;
+
+  background-image:
+    linear-gradient(
+      rgba(98,229,255,0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(98,229,255,0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      rgba(98,229,255,0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(98,229,255,0.025) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    40px 40px,
+    40px 40px,
+    10px 10px,
+    10px 10px;
+}
+
+.noise-layer {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 100;
+
+  pointer-events: none;
+
+  opacity: 0.02;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+
+/* =========================================================
+   SHELL
+========================================================= */
+
+.site-shell {
+  width: min(100%, 1500px);
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.topbar {
+  min-height: 90px;
+
+  padding:
+    var(--safe-top)
+    18px
+    18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 18px;
+
+  border-bottom:
+    1px solid var(--line);
+
+  position: relative;
+
+  z-index: 10;
+}
+
+.brand {
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+}
+
+.brand-icon {
+  width: 40px;
+
+  height: 40px;
+
+  flex: 0 0 auto;
+
+  position: relative;
+
+  border:
+    1px solid var(--line-strong);
+}
+
+.brand-icon span:first-child {
+  position: absolute;
+
+  right: 8px;
+
+  top: 8px;
+
+  width: 20px;
+
+  height: 1px;
+
+  background: var(--cyan);
+
+  transform: rotate(45deg);
+}
+
+.brand-icon span:last-child {
+  position: absolute;
+
+  left: 8px;
+
+  bottom: 8px;
+
+  width: 20px;
+
+  height: 1px;
+
+  background: var(--orange);
+
+  transform: rotate(-45deg);
+}
+
+.brand-copy {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.brand-copy small {
+  color: var(--text-muted);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.49rem;
+}
+
+.brand-copy strong {
+  font-family: var(--font-kufi);
+
+  font-size: 0.68rem;
+
+  line-height: 1.6;
+}
+
+.theme-toggle {
+  flex: 0 0 auto;
+
+  min-height: 38px;
+
+  padding:
+    0
+    11px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius: 999px;
+
+  background: var(--panel);
+
+  cursor: pointer;
+}
+
+.theme-toggle__dot {
+  width: 8px;
+
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: var(--cyan);
+
+  box-shadow:
+    0 0 12px
+    rgba(98,229,255,0.5);
+}
+
+.theme-toggle span:last-child {
+  font-family: var(--font-mono);
+
+  font-size: 0.52rem;
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.eyebrow {
+  display: inline-block;
+
+  margin-bottom: 15px;
+
+  color: var(--cyan);
+
+  font-family: var(--font-mono);
+
+  font-size:
+    clamp(
+      0.52rem,
+      2.4vw,
+      0.64rem
+    );
+
+  line-height: 1.8;
+}
+
+.accent {
+  color: var(--cyan);
+}
+
+.section-number {
+  padding-top: 6px;
+
+  color: var(--text-muted);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.56rem;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  min-height:
+    calc(100svh - 90px);
+
+  padding:
+    68px
+    18px
+    95px;
+
+  display: grid;
+
+  gap: 55px;
+
+  align-content: center;
+}
+
+.hero-copy {
+  width: min(100%, 680px);
+}
+
+.hero-copy h1,
+.section-heading h2,
+.phases-heading h2,
+.name-section h2,
+.route-heading h2,
+.ceremony-heading h2,
+.closing h2 {
+  margin: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.13em;
+
+  font-weight: 500;
+
+  line-height: 1.35;
+
+  letter-spacing: 0;
+}
+
+.hero-copy h1 {
+  font-size:
+    clamp(
+      3rem,
+      13vw,
+      5.5rem
+    );
+}
+
+.hero-copy h1 > span,
+.section-heading h2 > span,
+.phases-heading h2 > span,
+.name-section h2 > span,
+.route-heading h2 > span,
+.ceremony-heading h2 > span,
+.closing h2 > span {
+  display: block;
+
+  line-height: inherit;
+}
+
+.hero-copy p {
+  width: min(100%, 520px);
+
+  margin:
+    26px
+    0
+    0;
+
+  color: var(--text-soft);
+
+  font-size:
+    clamp(
+      0.9rem,
+      3.7vw,
+      1.05rem
+    );
+
+  line-height: 2;
+}
+
+
+/* =========================================================
+   BLUEPRINT BOARD
+========================================================= */
+
+.blueprint-board {
+  width: min(100%, 780px);
+
+  margin: 0 auto;
+
+  padding: 18px;
+
+  border:
+    1px solid var(--line-strong);
+
+  border-radius: 18px;
+
+  background: var(--panel);
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 30px 90px
+    rgba(0,0,0,0.18);
+}
+
+.board-top {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    auto;
+
+  gap: 18px;
+
+  padding-bottom: 18px;
+
+  border-bottom:
+    1px solid var(--line);
+}
+
+.board-top div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.board-top span {
+  color: var(--text-muted);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.49rem;
+}
+
+.board-top strong {
+  font-size:
+    clamp(
+      0.75rem,
+      3.1vw,
+      0.95rem
+    );
+
+  line-height: 1.6;
+}
+
+.board-top div:last-child {
+  text-align: left;
+}
+
+.board-top div:last-child strong {
+  color: var(--cyan);
+}
+
+
+/* =========================================================
+   DRAWING
+========================================================= */
+
+.drawing-area {
+  position: relative;
+
+  margin-top: 20px;
+
+  min-height: 340px;
+
+  overflow: hidden;
+
+  border:
+    1px solid var(--line);
+
+  background:
+    linear-gradient(
+      rgba(98,229,255,0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(98,229,255,0.025) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    24px 24px;
+}
+
+.blueprint-svg {
+  width: 100%;
+
+  height: 100%;
+
+  min-height: 340px;
+}
+
+.bp-line {
+  fill: none;
+
+  stroke: var(--cyan);
+
+  stroke-width: 2;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+
+  stroke-dasharray: 1;
+
+  stroke-dashoffset: 1;
+
+  vector-effect:
+    non-scaling-stroke;
+}
+
+.bp-dim {
+  fill: none;
+
+  stroke: var(--text-muted);
+
+  stroke-width: 1;
+
+  stroke-dasharray: 6 6;
+
+  vector-effect:
+    non-scaling-stroke;
+}
+
+.bp-node {
+  fill: var(--bg);
+
+  stroke: var(--orange);
+
+  stroke-width: 2;
+
+  vector-effect:
+    non-scaling-stroke;
+}
+
+.blueprint-name {
+  fill:
+    rgba(98,229,255,0);
+
+  stroke: var(--cyan);
+
+  stroke-width: 1.2;
+
+  paint-order: stroke fill;
+
+  font-family: var(--font-kufi);
+
+  font-size: 52px;
+
+  font-weight: 600;
+
+  opacity: 0;
+
+  vector-effect:
+    non-scaling-stroke;
+}
+
+
+/* =========================================================
+   INFO NODES
+========================================================= */
+
+.info-node {
+  position: absolute;
+
+  z-index: 4;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  padding:
+    7px
+    9px;
+
+  border:
+    1px solid var(--line-strong);
+
+  background:
+    rgba(7,26,41,0.88);
+
+  color: var(--text);
+
+  font-family: var(--font-kufi);
+
+  font-size: 0.55rem;
+
+  cursor: pointer;
+}
+
+.light-mode .info-node {
+  background:
+    rgba(255,255,255,0.90);
+}
+
+.info-node span {
+  width: 6px;
+
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--orange);
+}
+
+.info-node--1 {
+  right: 6%;
+
+  bottom: 12%;
+}
+
+.info-node--2 {
+  right: 42%;
+
+  top: 10%;
+}
+
+.info-node--3 {
+  left: 5%;
+
+  bottom: 12%;
+}
+
+
+/* =========================================================
+   NODE PANEL
+========================================================= */
+
+.node-panel {
+  margin-top: 12px;
+
+  min-height: 115px;
+
+  padding: 15px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 5px;
+
+  border:
+    1px solid var(--line);
+
+  background: var(--cyan-soft);
+}
+
+.node-panel span {
+  color: var(--text-muted);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.48rem;
+}
+
+.node-panel strong {
+  font-family: var(--font-kufi);
+
+  font-size:
+    clamp(
+      0.76rem,
+      3.2vw,
+      0.9rem
+    );
+
+  line-height: 1.7;
+}
+
+.node-panel p {
+  margin: 0;
+
+  color: var(--text-soft);
+
+  font-size: 0.72rem;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   CONSOLE
+========================================================= */
+
+.project-console {
+  margin-top: 14px;
+
+  display: grid;
+
+  gap: 12px;
+}
+
+.console-status {
+  min-height: 26px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: var(--text-soft);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.56rem;
+}
+
+.console-dot {
+  width: 7px;
+
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--text-muted);
+}
+
+.console-dot.is-active {
+  background: var(--orange);
+
+  box-shadow:
+    0 0 14px
+    rgba(255,158,85,0.6);
+}
+
+.console-dot.is-complete {
+  background: var(--success);
+
+  box-shadow:
+    0 0 14px
+    rgba(118,241,184,0.55);
+}
+
+.build-button {
+  width: 100%;
+
+  min-height: 58px;
+
+  padding:
+    0
+    17px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 18px;
+
+  border:
+    1px solid
+    rgba(98,229,255,0.32);
+
+  background: var(--cyan-soft);
+
+  color: var(--text);
+
+  cursor: pointer;
+}
+
+.build-button span {
+  font-family: var(--font-kufi);
+
+  font-size:
+    clamp(
+      0.61rem,
+      2.8vw,
+      0.75rem
+    );
+}
+
+.build-button svg {
+  width: 20px;
+
+  height: 20px;
+
+  flex: 0 0 auto;
+
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 1.6;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.progress-section,
+.spec-section,
+.actions-section {
+  width:
+    min(
+      calc(100% - 36px),
+      1120px
+    );
+
+  margin: 0 auto;
+
+  padding:
+    120px
+    0;
+
+  display: grid;
+
+  grid-template-columns:
+    auto
+    minmax(0,1fr);
+
+  gap: 16px;
+
+  border-top:
+    1px solid var(--line);
+}
+
+.section-heading h2,
+.phases-heading h2,
+.route-heading h2,
+.ceremony-heading h2 {
+  font-size:
+    clamp(
+      2.4rem,
+      9.5vw,
+      5rem
+    );
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progress-display {
+  grid-column: 1 / -1;
+
+  margin-top: 55px;
+}
+
+.progress-display > strong {
+  display: block;
+
+  font-family: var(--font-mono);
+
+  font-size:
+    clamp(
+      5rem,
+      25vw,
+      11rem
+    );
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  color: var(--cyan);
+}
+
+.progress-bar {
+  width: 100%;
+
+  height: 7px;
+
+  margin-top: 40px;
+
+  overflow: hidden;
+
+  background:
+    rgba(255,255,255,0.07);
+}
+
+.progress-bar span {
+  display: block;
+
+  width: 0;
+
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--orange),
+      var(--cyan),
+      var(--success)
+    );
+}
+
+.progress-meta {
+  margin-top: 12px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  color: var(--text-muted);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.48rem;
+}
+
+
+/* =========================================================
+   PHASES
+========================================================= */
+
+.phases-section {
+  padding:
+    120px
+    18px;
+
+  background: var(--bg-2);
+}
+
+.phases-heading {
+  width: min(100%,1120px);
+
+  margin: 0 auto;
+}
+
+.phases-list {
+  width: min(100%,1120px);
+
+  margin:
+    55px
+    auto
+    0;
+
+  border-top:
+    1px solid var(--line-strong);
+}
+
+.phase-row {
+  min-height: 110px;
+
+  padding:
+    18px
+    4px;
+
+  display: grid;
+
+  grid-template-columns:
+    36px
+    minmax(0,1fr)
+    auto;
+
+  align-items: center;
+
+  gap: 12px;
+
+  border-bottom:
+    1px solid var(--line);
+}
+
+.phase-index {
+  color: var(--text-muted);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.52rem;
+}
+
+.phase-copy {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.phase-copy strong {
+  font-family: var(--font-kufi);
+
+  font-size:
+    clamp(
+      0.78rem,
+      3.2vw,
+      0.95rem
+    );
+
+  line-height: 1.7;
+}
+
+.phase-copy span {
+  color: var(--text-muted);
+
+  font-size: 0.66rem;
+
+  line-height: 1.7;
+}
+
+.phase-status {
+  color: var(--text-muted);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.5rem;
+}
+
+.phase-row.is-complete .phase-status {
+  color: var(--success);
+}
+
+
+/* =========================================================
+   NAME SECTION
+========================================================= */
+
+.name-section {
+  min-height: 95svh;
+
+  padding:
+    120px
+    18px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  background: var(--bg);
+
+  border-top:
+    1px solid var(--line);
+}
+
+.name-section__meta {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 55px;
+
+  color: var(--text-muted);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.53rem;
+}
+
+.name-section__content {
+  width: min(100%,1000px);
+
+  margin: 0 auto;
+}
+
+.name-section h2 {
+  font-size:
+    clamp(
+      3rem,
+      12vw,
+      6.2rem
+    );
+}
+
+.graduate-name-large {
+  margin-top: 60px;
+
+  padding:
+    35px
+    0;
+
+  border-top:
+    1px solid var(--line-strong);
+
+  border-bottom:
+    1px solid var(--line-strong);
+}
+
+.graduate-name-large span {
+  color: var(--text-muted);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.52rem;
+}
+
+.graduate-name-large strong {
+  display: block;
+
+  margin-top: 12px;
+
+  font-family: var(--font-kufi);
+
+  font-size:
+    clamp(
+      2.3rem,
+      10vw,
+      5rem
+    );
+
+  line-height: 1.45;
+
+  color: var(--cyan);
+}
+
+.name-section__content p {
+  max-width: 570px;
+
+  margin:
+    35px
+    0
+    0;
+
+  color: var(--text-soft);
+
+  line-height: 2;
+}
+
+
+/* =========================================================
+   SPEC GRID
+========================================================= */
+
+.spec-grid {
+  grid-column: 1 / -1;
+
+  margin-top: 55px;
+
+  display: grid;
+
+  gap: 8px;
+}
+
+.spec-card {
+  min-height: 125px;
+
+  padding: 18px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  gap: 18px;
+
+  border:
+    1px solid var(--line);
+
+  background: var(--panel);
+}
+
+.spec-card span {
+  color: var(--text-muted);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.5rem;
+}
+
+.spec-card strong {
+  font-size:
+    clamp(
+      0.82rem,
+      3.4vw,
+      1rem
+    );
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   ROUTE
+========================================================= */
+
+.route-section {
+  padding:
+    120px
+    18px;
+
+  background: var(--bg-2);
+}
+
+.route-heading {
+  width: min(100%,1120px);
+
+  margin: 0 auto;
+}
+
+.route-board {
+  width: min(100%,1120px);
+
+  min-height: 300px;
+
+  margin:
+    60px
+    auto
+    0;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border:
+    1px solid var(--line);
+
+  background:
+    var(--panel);
+}
+
+.route-svg {
+  width: 100%;
+
+  height: 300px;
+}
+
+.route-path {
+  fill: none;
+
+  stroke: var(--cyan);
+
+  stroke-width: 3;
+
+  stroke-linecap: round;
+
+  stroke-dasharray: 1;
+
+  stroke-dashoffset: 1;
+
+  vector-effect:
+    non-scaling-stroke;
+}
+
+.route-start {
+  fill: var(--orange);
+}
+
+.route-end {
+  fill: var(--success);
+
+  stroke: var(--cyan);
+
+  stroke-width: 3;
+}
+
+.route-start-label,
+.route-end-label {
+  position: absolute;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.route-start-label {
+  right: 6%;
+
+  bottom: 8%;
+}
+
+.route-end-label {
+  left: 6%;
+
+  top: 8%;
+}
+
+.route-start-label span,
+.route-end-label span {
+  color: var(--text-muted);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.47rem;
+}
+
+.route-start-label strong,
+.route-end-label strong {
+  font-size:
+    clamp(
+      0.65rem,
+      2.7vw,
+      0.78rem
+    );
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   CEREMONY
+========================================================= */
+
+.ceremony-section {
+  padding:
+    120px
+    18px;
+}
+
+.ceremony-heading {
+  width: min(100%,1120px);
+
+  margin: 0 auto;
+}
+
+.ceremony-heading p {
+  max-width: 550px;
+
+  margin:
+    24px
+    0
+    0;
+
+  color: var(--text-soft);
+
+  line-height: 2;
+}
+
+.ceremony-layout {
+  width: min(100%,1120px);
+
+  margin:
+    55px
+    auto
+    0;
+
+  display: grid;
+
+  gap: 12px;
+}
+
+.date-card {
+  min-height: 290px;
+
+  padding: 24px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    1px solid var(--line);
+
+  background: var(--panel);
+}
+
+.date-month,
+.date-year {
+  font-family: var(--font-mono);
+
+  letter-spacing: 0.1em;
+}
+
+.date-month {
+  color: var(--cyan);
+}
+
+.date-year {
+  color: var(--text-muted);
+}
+
+.date-day {
+  font-family: var(--font-mono);
+
+  font-size:
+    clamp(
+      6rem,
+      30vw,
+      10rem
+    );
+
+  line-height: 1;
+
+  font-weight: 500;
+}
+
+.ceremony-info {
+  overflow: hidden;
+
+  border:
+    1px solid var(--line);
+
+  background: var(--panel);
+}
+
+.ceremony-row {
+  min-height: 94px;
+
+  padding: 18px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  border-bottom:
+    1px solid var(--line);
+}
+
+.ceremony-row:last-child {
+  border-bottom: 0;
+}
+
+.ceremony-row span {
+  color: var(--text-muted);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.5rem;
+}
+
+.ceremony-row strong {
+  font-size:
+    clamp(
+      0.82rem,
+      3.4vw,
+      1rem
+    );
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.actions-grid {
+  grid-column: 1 / -1;
+
+  margin-top: 55px;
+
+  display: grid;
+
+  gap: 8px;
+}
+
+.action-card {
+  width: 100%;
+
+  min-height: 110px;
+
+  padding: 17px;
+
+  display: grid;
+
+  grid-template-columns:
+    auto
+    minmax(0,1fr)
+    auto;
+
+  align-items: center;
+
+  gap: 14px;
+
+  border:
+    1px solid var(--line);
+
+  background: var(--panel);
+
+  text-align: right;
+
+  cursor: pointer;
+}
+
+.action-index {
+  color: var(--text-muted);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.51rem;
+}
+
+.action-card div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.action-card small {
+  color: var(--text-muted);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.47rem;
+}
+
+.action-card strong {
+  font-family: var(--font-kufi);
+
+  font-size:
+    clamp(
+      0.61rem,
+      2.7vw,
+      0.74rem
+    );
+
+  line-height: 1.7;
+}
+
+.action-card svg {
+  width: 21px;
+
+  height: 21px;
+
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 1.5;
+}
+
+.share-feedback {
+  grid-column: 1 / -1;
+
+  min-height: 28px;
+
+  padding-top: 10px;
+
+  color: var(--success);
+
+  font-size: 0.6rem;
+}
+
+
+/* =========================================================
+   CLOSING
+========================================================= */
+
+.closing {
+  min-height: 80svh;
+
+  padding:
+    120px
+    18px
+    calc(
+      60px +
+      var(--safe-bottom)
+    );
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  background:
+    #04111b;
+}
+
+.light-mode .closing {
+  background:
+    #d6e8ef;
+}
+
+.closing h2 {
+  font-size:
+    clamp(
+      3rem,
+      12vw,
+      6rem
+    );
+}
+
+.closing p {
+  margin:
+    32px
+    0
+    0;
+
+  color: var(--text-soft);
+}
+
+.closing p strong {
+  color: var(--text);
+}
+
+.closing > small {
+  margin-top: 80px;
+
+  color: var(--text-muted);
+
+  font-family: var(--font-mono);
+
+  font-size: 0.48rem;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 700px) {
+
+  .topbar {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+
+  .hero {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+
+  .blueprint-board {
+    padding: 26px;
+  }
+
+  .drawing-area {
+    min-height: 430px;
+  }
+
+  .blueprint-svg {
+    min-height: 430px;
+  }
+
+  .spec-grid {
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+  }
+
+  .ceremony-layout {
+    grid-template-columns:
+      minmax(250px,0.8fr)
+      minmax(0,1.2fr);
+  }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1050px) {
+
+  .topbar {
+    padding-right: 55px;
+    padding-left: 55px;
+  }
+
+  .hero {
+    min-height:
+      calc(100vh - 90px);
+
+    padding:
+      80px
+      55px
+      110px;
+
+    grid-template-columns:
+      minmax(0,0.82fr)
+      minmax(600px,1.18fr);
+
+    align-items: center;
+
+    gap: 70px;
+  }
+
+  .spec-grid {
+    grid-template-columns:
+      repeat(3,minmax(0,1fr));
+  }
+
+  .actions-grid {
+    grid-template-columns:
+      repeat(3,minmax(0,1fr));
+  }
+
+  .action-card {
+    min-height: 190px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+  }
+
+  .action-card svg {
+    align-self: flex-end;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 390px) {
+
+  .topbar {
+    padding-right: 13px;
+    padding-left: 13px;
+  }
+
+  .brand-copy small {
+    display: none;
+  }
+
+  .hero {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .hero-copy h1 {
+    font-size: 2.75rem;
+
+    line-height: 1.4;
+  }
+
+  .blueprint-board {
+    padding: 12px;
+  }
+
+  .drawing-area {
+    min-height: 310px;
+  }
+
+  .blueprint-svg {
+    min-height: 310px;
+  }
+
+  .blueprint-name {
+    font-size: 44px;
+  }
+
+  .info-node {
+    padding:
+      6px
+      7px;
+
+    font-size: 0.48rem;
+  }
+
+  .section-heading h2,
+  .phases-heading h2,
+  .route-heading h2,
+  .ceremony-heading h2 {
+    font-size: 2.2rem;
+
+    line-height: 1.4;
+  }
+
+  .name-section h2 {
+    font-size: 2.6rem;
+
+    line-height: 1.4;
+  }
+
+  .graduate-name-large strong {
+    font-size: 2.2rem;
+  }
+
+  .closing h2 {
+    font-size: 2.7rem;
+
+    line-height: 1.4;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.001ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.001ms !important;
+  }
+
+  .noise-layer {
+    display: none;
+  }
+
+}
